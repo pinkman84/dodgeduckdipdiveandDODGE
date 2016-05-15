@@ -18,20 +18,14 @@ t2 = team2.save
 t3 = team3.save
 t4 = team4.save
 
-match1 = Match.new( {'team1_id' => t1.team_id, 'team2_id' => t2.team_id, 'winner' => t1.team_id})
-match2 = Match.new( {'team1_id' => t3.team_id, 'team2_id' => t4.team_id, 'winner' => t3.team_id})
-match3 = Match.new( {'team1_id' => t1.team_id, 'team2_id' => t3.team_id, 'winner' => t1.team_id})
-match4 = Match.new( {'team1_id' => t2.team_id, 'team2_id' => t4.team_id, 'winner' => t2.team_id})
-match5 = Match.new( {'team1_id' => t1.team_id, 'team2_id' => t4.team_id, 'winner' => t4.team_id})
-match6 = Match.new( {'team1_id' => t2.team_id, 'team2_id' => t3.team_id, 'winner' => t3.team_id})
+match1 = Match.new( {'team1_id' => t1.team_id, 'team1_player' => t1.players, 'team2_id' => t2.team_id, 'team2_player' => t2.players, 'winner' => t1.team_id})
+match2 = Match.new( {'team1_id' => t3.team_id, 'team1_player' => t3.players, 'team2_id' => t4.team_id, 'team2_player' => t4.players, 'winner' => t3.team_id})
+
 
 
 m1 = match1.save
 m2 = match2.save
-m3 = match3.save
-m4 = match4.save
-m5 = match5.save
-m6 = match6.save
+
 
 binding.pry
 nil

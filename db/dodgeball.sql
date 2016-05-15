@@ -13,7 +13,9 @@ CREATE TABLE teams (
 CREATE TABLE matches (
   id SERIAL4 primary key,
   team1_id INT4 references teams(team_id),
+  team1_player INT4,
   team2_id  INT4 references teams(team_id),
+  team2_player INT4,
   winner INT4 references teams(team_id)
 );
 

@@ -1,7 +1,7 @@
 require('pg')
 
 class Team
-  attr_accessor(:team_id, :name, :hometown, :players, :total_wins)
+  attr_accessor(:team_id, :name, :hometown, :players, :total_wins, :defeated)
   def initialize(options)
     @team_id = options['team_id'].to_i
     @name = options['name']
@@ -36,6 +36,7 @@ class Team
     until @players == 0
       lose_player
     end
+
   end
 
 
