@@ -1,7 +1,7 @@
 require('pg')
 
 class Team
-  attr_accessor(:id, :name, :hometown, :players, :total_wins)
+  attr_accessor(:team_id, :name, :hometown, :players, :total_wins)
   def initialize(options)
     @team_id = options['team_id'].to_i
     @name = options['name']
@@ -20,6 +20,11 @@ class Team
     SqlRunner.run(sql)
   end
 
+  def self.delete_all()
+    sql = "DELETE FROM teams"
+    SqlRunner.run(sql)
+  end
+
   def lose_player
     dodgeball = ['hit', 'miss'].sample
     if  dodgeball == 'hit'
@@ -27,7 +32,13 @@ class Team
     end
   end
 
-  
+  def defeated
+    until @players == 0
+      lose_player
+    end
+  end
+
+
 
   def self.map_items(sql)
     teams = SqlRunner.run(sql)

@@ -1,4 +1,5 @@
 require('pg')
+require_relative('player')
 
 class Match
   attr_accessor(:id, :team1_id, :team2_id, :winner)
@@ -6,7 +7,7 @@ class Match
     @id = options['id'].to_i
     @team1_id = options['team1_id'].to_i
     @team2_id = options['team2_id'].to_i
-    @winner = winner
+    @winner = options['winner'].to_i
   end
 
   def save
@@ -14,14 +15,18 @@ class Match
     return Match.map_item(sql)
   end
 
-  def winner?
-    if team1.players = 0
-      winner = @team2_id
-    elsif team2.players = 0
-      winner = @team1_id
-    end
-    return winner
+  def self.delete_all()
+    sql = "DELETE FROM matches"
+    SqlRunner.run(sql)
   end
+
+  # def victor
+  #   if team1_id.players = 0
+  #     puts "Team 2 are the winners"
+  #   elsif team2_id.players = 0
+  #     puts "Team 1 are the winners"
+  #   end
+  # end
 
   def self.map_items(sql)
     matches = SqlRunner.run(sql)
