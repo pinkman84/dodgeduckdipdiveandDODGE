@@ -10,7 +10,7 @@ class TestLeague < Minitest::Test
     @team1 = Team.new({'name' => 'Average Joes', 'hometown' => 'Anytown, USA'})
     @team2 = Team.new({'name' => 'Globogym Purple Cobras', 'hometown' => 'Anytown, USA'})
 
-    @match = Match.new()
+    match1 = Match.new( {'team1_id' => t1.team_id, 'team1_player' => t1.players, 'team2_id' => t2.team_id, 'team2_player' => t2.players, 'winner' => t1.team_id})
 
   end
 

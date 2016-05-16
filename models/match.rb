@@ -22,27 +22,16 @@ class Match
     SqlRunner.run(sql)
   end
 
-  def lose_player
-     dodgeball = ['hit', 'miss'].sample
-     if  dodgeball == 'hit'
-       @players -= 1
-     end
-   end
 
-   def defeated
-     until @players == 0
-       lose_player
-     end
-   end
-
-   def match_result
+  def match_result
+  
     if @team1_player > @team2_player
       @winner = @team1_id
     else
       @winner = @team2_id
     end
 
-   end
+ end
 
 
   def self.map_items(sql)
