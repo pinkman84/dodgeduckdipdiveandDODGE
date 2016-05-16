@@ -13,7 +13,7 @@ class Match
   end
 
   def save
-    sql = "INSERT INTO matches (team1_id, team2_id, winner) VALUES (#{@team1_id}, #{@team2_id}, #{@winner} ) RETURNING *"
+    sql = "INSERT INTO matches (team1_id, team1_player, team2_id, team2_player, winner) VALUES (#{@team1_id}, #{team1_player}, #{@team2_id}, #{team2_player}, #{@winner} ) RETURNING *"
     return Match.map_item(sql)
   end
 
